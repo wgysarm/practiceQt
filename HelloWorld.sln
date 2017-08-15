@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "HelloWorld\HelloWorld.vcxproj", "{E0164B4A-A405-467F-ACF9-7CA2D2C3BAC5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IVFDConfig", "IVFDConfig\IVFDConfig.vcxproj", "{A67B107A-4E11-4884-AEAA-055326B76B15}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IVFDTest", "IVFDTest\IVFDTest.vcxproj", "{99395818-476C-4A18-B8C0-DF050F99A703}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IVFDFireDetect", "IVFDFireDetect\IVFDFireDetect.vcxproj", "{A96C369C-7456-4FB7-8D69-05361DCAE0B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0164B4A-A405-467F-ACF9-7CA2D2C3BAC5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E0164B4A-A405-467F-ACF9-7CA2D2C3BAC5}.Debug|Win32.Build.0 = Debug|Win32
+		{E0164B4A-A405-467F-ACF9-7CA2D2C3BAC5}.Release|Win32.ActiveCfg = Release|Win32
+		{E0164B4A-A405-467F-ACF9-7CA2D2C3BAC5}.Release|Win32.Build.0 = Release|Win32
+		{A67B107A-4E11-4884-AEAA-055326B76B15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A67B107A-4E11-4884-AEAA-055326B76B15}.Debug|Win32.Build.0 = Debug|Win32
+		{A67B107A-4E11-4884-AEAA-055326B76B15}.Release|Win32.ActiveCfg = Release|Win32
+		{A67B107A-4E11-4884-AEAA-055326B76B15}.Release|Win32.Build.0 = Release|Win32
+		{99395818-476C-4A18-B8C0-DF050F99A703}.Debug|Win32.ActiveCfg = Debug|Win32
+		{99395818-476C-4A18-B8C0-DF050F99A703}.Debug|Win32.Build.0 = Debug|Win32
+		{99395818-476C-4A18-B8C0-DF050F99A703}.Release|Win32.ActiveCfg = Release|Win32
+		{99395818-476C-4A18-B8C0-DF050F99A703}.Release|Win32.Build.0 = Release|Win32
+		{A96C369C-7456-4FB7-8D69-05361DCAE0B7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A96C369C-7456-4FB7-8D69-05361DCAE0B7}.Debug|Win32.Build.0 = Debug|Win32
+		{A96C369C-7456-4FB7-8D69-05361DCAE0B7}.Release|Win32.ActiveCfg = Release|Win32
+		{A96C369C-7456-4FB7-8D69-05361DCAE0B7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

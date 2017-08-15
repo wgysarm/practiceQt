@@ -1,0 +1,156 @@
+﻿Build started 2017/8/11 21:22:41.
+     1>Project "D:\practice\qtpjt\HelloWorld\IVFDFireDetect\IVFDFireDetect.vcxproj" on node 4 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\IVFDFireDetect.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\IVFDFireDetect.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include /I.\GeneratedFiles\Debug /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtCore /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtMultimedia /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtNetwork /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtOpenGL /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtWidgets /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtXml /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_MULTIMEDIA_LIB /D QT_NETWORK_LIB /D QT_OPENGL_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D IVFDFIREDETECT_LIB /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\IVFDFireDetect.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include /I.\GeneratedFiles\Debug /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtCore /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtMultimedia /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtNetwork /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtOpenGL /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtWidgets /IE:\Qt\Qt5.4.1\5.4\msvc2010_opengl\include\QtXml /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_MULTIMEDIA_LIB /D QT_NETWORK_LIB /D QT_OPENGL_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D IVFDFIREDETECT_LIB /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\IVFDFireDetect.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt IVFDFireDetect.cpp
+         IVFDFireDetect.cpp
+       Link:
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\practice\qtpjt\HelloWorld\Win32\Debug\\IVFDFireDetect.dll" /NOLOGO /LIBPATH:E:\Qt\Qt5.4.1\5.4\msvc2010_opengl\lib qtmaind.lib Qt5Cored.lib Qt5Multimediad.lib Qt5Networkd.lib Qt5OpenGLd.lib opengl32.lib glu32.lib Qt5Widgetsd.lib Qt5Xmld.lib opencv_ml247d.lib opencv_calib3d247d.lib opencv_contrib247d.lib opencv_core247d.lib opencv_features2d247d.lib opencv_flann247d.lib opencv_gpu247d.lib opencv_highgui247d.lib opencv_imgproc247d.lib opencv_legacy247d.lib opencv_objdetect247d.lib opencv_ts247d.lib opencv_video247d.lib opencv_nonfree247d.lib opencv_ocl247d.lib opencv_photo247d.lib opencv_stitching247d.lib opencv_superres247d.lib opencv_videostab247d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\IVFDFireDetect.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\practice\qtpjt\HelloWorld\Win32\Debug\IVFDFireDetect.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\practice\qtpjt\HelloWorld\Win32\Debug\IVFDFireDetect.lib" /MACHINE:X86 /DLL Debug\IVFDFireDetect.obj
+         Debug\stdafx.obj
+            Creating library D:\practice\qtpjt\HelloWorld\Win32\Debug\IVFDFireDetect.lib and object D:\practice\qtpjt\HelloWorld\Win32\Debug\IVFDFireDetect.exp
+         IVFDFireDetect.vcxproj -> D:\practice\qtpjt\HelloWorld\Win32\Debug\IVFDFireDetect.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\practice\qtpjt\HelloWorld\Win32\Debug\\IVFDFireDetect.dll;#2" /manifest Debug\IVFDFireDetect.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\IVFDFireDetect.unsuccessfulbuild".
+         Touching "Debug\IVFDFireDetect.lastbuildstate".
+     1>Done Building Project "D:\practice\qtpjt\HelloWorld\IVFDFireDetect\IVFDFireDetect.vcxproj" (rebuild target(s)).
+
+Project Performance Summary:
+     3413 ms  D:\practice\qtpjt\HelloWorld\IVFDFireDetect\IVFDFireDetect.vcxproj   1 calls
+               3413 ms  rebuild                                    1 calls
+
+Target Performance Summary:
+        0 ms  CreateCustomManifestResourceNames          1 calls
+        0 ms  GetReferenceAssemblyPaths                  1 calls
+        0 ms  BeforeRebuild                              1 calls
+        0 ms  _Manifest                                  1 calls
+        0 ms  AfterCppClean                              1 calls
+        0 ms  MakeDirsForLink                            1 calls
+        0 ms  _PrepareForBuild                           1 calls
+        0 ms  _Midl                                      1 calls
+        0 ms  _ClCompile                                 1 calls
+        0 ms  SelectCustomBuild                          1 calls
+        0 ms  CreateSatelliteAssemblies                  1 calls
+        0 ms  CppClean                                   1 calls
+        0 ms  BeforeClean                                1 calls
+        0 ms  _XdcMake                                   1 calls
+        0 ms  BeforeBuildGenerateSources                 1 calls
+        0 ms  ComputeCustomBuildOutput                   1 calls
+        0 ms  BeforeResourceCompile                      1 calls
+        0 ms  AfterBuildCompileEvent                     1 calls
+        0 ms  AfterMidl                                  1 calls
+        0 ms  ComputeRCOutputs                           1 calls
+        0 ms  ComputeCLCompileGeneratedXDCFiles          1 calls
+        0 ms  Rebuild                                    1 calls
+        0 ms  CleanPublishFolder                         1 calls
+        0 ms  AfterClean                                 1 calls
+        0 ms  Clean                                      1 calls
+        0 ms  MakeDirsForManifest                        1 calls
+        0 ms  BuildLinkTraverse                          1 calls
+        0 ms  _GenerateXMLData                           1 calls
+        0 ms  BeforeCppClean                             1 calls
+        0 ms  ComputeLinkInputsFromProject               1 calls
+        0 ms  _DetermineManagedStateForLink              1 calls
+        0 ms  _ResourceCompile                           1 calls
+        0 ms  ComputeCLGeneratedLinkInputs               1 calls
+        0 ms  _CheckForCompileOutputs                    1 calls
+        0 ms  AfterResourceCompile                       1 calls
+        0 ms  ComputeCLCompileGeneratedSbrFiles          1 calls
+        0 ms  _Deploy                                    1 calls
+        0 ms  MakeDirsForResourceCompile                 1 calls
+        0 ms  AfterClCompile                             1 calls
+        0 ms  ComputeCLOutputs                           1 calls
+        0 ms  SelectClCompile                            1 calls
+        0 ms  ResolveReferences                          1 calls
+        0 ms  RegisterOutput                             1 calls
+        0 ms  PreLinkEvent                               1 calls
+        0 ms  AfterRebuild                               1 calls
+        0 ms  _Link                                      1 calls
+        0 ms  Build                                      1 calls
+        0 ms  PrepareResourceNames                       1 calls
+        0 ms  AfterBuild                                 1 calls
+        0 ms  PreBuildEvent                              1 calls
+        0 ms  AfterBuildGenerateSources                  1 calls
+        0 ms  MakeDirsForMidl                            1 calls
+        0 ms  _SplitProjectReferencesByFileExistence     1 calls
+        0 ms  _DetermineManagedStateFromCL               1 calls
+        0 ms  AfterLink                                  1 calls
+        0 ms  ComputeCLInputPDBName                      1 calls
+        0 ms  AssignTargetPaths                          1 calls
+        0 ms  _ALink                                     1 calls
+        0 ms  BuildCompileTraverse                       1 calls
+        0 ms  _BscMake                                   1 calls
+        0 ms  BuildGenerateSources                       1 calls
+        0 ms  MakeDirsForBscMake                         1 calls
+        0 ms  BeforeLink                                 1 calls
+        0 ms  ComputeRCGeneratedLinkInputs               1 calls
+        0 ms  _Appverifier                               1 calls
+        0 ms  _CopySourceItemsToOutputDirectory          1 calls
+        0 ms  BuildCompile                               1 calls
+        0 ms  _GenerateWebServiceProxy                   1 calls
+        0 ms  CopyFilesToOutputDirectory                 1 calls
+        0 ms  _Xsd                                       1 calls
+        0 ms  BuildLink                                  1 calls
+        0 ms  AfterResolveReferences                     1 calls
+        0 ms  BeforeResolveReferences                    1 calls
+        0 ms  ComputeManifestGeneratedLinkerInputs       1 calls
+        0 ms  PlatformPrepareForBuild                    1 calls
+        0 ms  AfterBuildGenerateSourcesEvent             1 calls
+        0 ms  MakeDirsForXdcMake                         1 calls
+        0 ms  BeforeClCompile                            1 calls
+        1 ms  ComputeReferenceCLInput                    1 calls
+        1 ms  ComputeLinkImportLibraryOutputsForClean    1 calls
+        1 ms  PGInstrumentedClean                        1 calls
+        1 ms  GetFrameworkPaths                          1 calls
+        1 ms  _PrepareForClean                           1 calls
+        1 ms  ResolvedXDCMake                            1 calls
+        1 ms  GetCopyToOutputDirectoryItems              1 calls
+        1 ms  SplitResourcesByCulture                    1 calls
+        1 ms  _PrepareForRebuild                         1 calls
+        1 ms  PrepareForBuild                            1 calls
+        1 ms  ComputeMIDLGeneratedCompileInputs          1 calls
+        1 ms  _SelectedFiles                             1 calls
+        1 ms  BuildGenerateSourcesTraverse               1 calls
+        1 ms  ResolveProjectReferences                   1 calls
+        1 ms  ComputeManifestInputsTargets               1 calls
+        1 ms  _GenerateSatelliteAssemblyInputs           1 calls
+        1 ms  PostBuildEvent                             1 calls
+        2 ms  MakeDirsForCl                              1 calls
+        3 ms  InitializeBuildStatus                      1 calls
+        3 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+        3 ms  FinalizeBuildStatus                        1 calls
+        3 ms  DoLinkOutputFilesMatch                     1 calls
+        3 ms  CleanReferencedProjects                    1 calls
+        3 ms  CoreClean                                  1 calls
+        5 ms  SetBuildDefaultEnvironmentVariables        1 calls
+       20 ms  CoreCppClean                               1 calls
+      223 ms  Manifest                                   1 calls
+      399 ms  Link                                       1 calls
+     2725 ms  ClCompile                                  1 calls
+
+Task Performance Summary:
+        0 ms  AssignTargetPath                           5 calls
+        0 ms  FindUnderPath                              2 calls
+        0 ms  Message                                    3 calls
+        1 ms  AssignCulture                              1 calls
+        1 ms  RemoveDuplicates                           1 calls
+        1 ms  ReadLinesFromFile                          2 calls
+        2 ms  Delete                                     6 calls
+        2 ms  MakeDir                                   12 calls
+        3 ms  Touch                                      2 calls
+        4 ms  WriteLinesToFile                           4 calls
+        5 ms  SetEnv                                     4 calls
+       19 ms  CppClean                                   1 calls
+      222 ms  Mt                                         1 calls
+      399 ms  Link                                       1 calls
+     2722 ms  CL                                         2 calls
+
+Build succeeded.
+
+Time Elapsed 00:00:03.43
