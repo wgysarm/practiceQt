@@ -178,6 +178,7 @@
     <property name="title">
      <string>operate</string>
     </property>
+    <addaction name="actionLoad"/>
     <addaction name="actionGray"/>
    </widget>
    <addaction name="menuFile"/>
@@ -220,6 +221,11 @@
   <action name="actionGray">
    <property name="text">
     <string>gray</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>load</string>
    </property>
   </action>
  </widget>

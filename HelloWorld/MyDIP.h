@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "ui_MyDIP.h"
 #include <QImage>
+#include <QGraphicsView>
+#include <QGraphicsScene>
 
 class MyDIP : public QMainWindow
 {
@@ -19,6 +21,8 @@ public slots:
 	void SlotsFileActionOpen(void);
 	void SlotsFileActionSave(void);
 	void SlotsFileActionClose(void);
+	void SlotOperateActionLoad(void);
+	void SlotOperateActionGray(void);
 
 
 
@@ -28,6 +32,7 @@ private:
 	Ui::MyDIP ui;
 
 	QImage *imageLeft ,*imageRight;
+	QGraphicsScene *sceneLeft, *sceneRight;
 
 
 
