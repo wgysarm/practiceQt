@@ -24,10 +24,6 @@ public slots:
 	void SlotOperateActionLoad(void);
 	void SlotOperateActionGray(void);
 
-
-
-
-
 private:
 	Ui::MyDIP ui;
 
