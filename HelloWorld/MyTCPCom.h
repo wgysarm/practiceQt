@@ -23,7 +23,7 @@ typedef struct InfoAlarm{
 	int infoHead;
 	int alarmType;
 	char data[100];
-};
+}InfoAlarm;
 
 class MyTCPCom : public QMainWindow
 {

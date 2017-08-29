@@ -66,6 +66,66 @@
     </message>
 </context>
 <context>
+    <name>MyDIP</name>
+    <message>
+        <location filename="MyDIP.ui" line="20"/>
+        <source>MyDIP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="33"/>
+        <location filename="MyDIP.ui" line="46"/>
+        <location filename="MyDIP.ui" line="59"/>
+        <location filename="MyDIP.ui" line="72"/>
+        <location filename="MyDIP.ui" line="85"/>
+        <location filename="MyDIP.ui" line="98"/>
+        <location filename="MyDIP.ui" line="111"/>
+        <location filename="MyDIP.ui" line="124"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="169"/>
+        <source>file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="179"/>
+        <source>operate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="197"/>
+        <source>open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="202"/>
+        <source>save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="207"/>
+        <source>save as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="212"/>
+        <source>print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="217"/>
+        <source>close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyDIP.ui" line="222"/>
+        <source>gray</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MyDialog</name>
     <message>
         <location filename="MyDialog.cpp" line="19"/>
@@ -91,146 +151,146 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="42"/>
-        <location filename="MyTCPCom.ui" line="107"/>
+        <location filename="MyTCPCom.ui" line="27"/>
+        <location filename="MyTCPCom.ui" line="92"/>
         <source>GroupBox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="54"/>
-        <location filename="MyTCPCom.ui" line="93"/>
-        <location filename="MyTCPCom.ui" line="119"/>
-        <location filename="MyTCPCom.ui" line="158"/>
+        <location filename="MyTCPCom.ui" line="39"/>
+        <location filename="MyTCPCom.ui" line="78"/>
+        <location filename="MyTCPCom.ui" line="104"/>
+        <location filename="MyTCPCom.ui" line="143"/>
         <source>RadioButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="67"/>
-        <location filename="MyTCPCom.ui" line="80"/>
-        <location filename="MyTCPCom.ui" line="132"/>
-        <location filename="MyTCPCom.ui" line="145"/>
+        <location filename="MyTCPCom.ui" line="52"/>
+        <location filename="MyTCPCom.ui" line="65"/>
+        <location filename="MyTCPCom.ui" line="117"/>
+        <location filename="MyTCPCom.ui" line="130"/>
         <source>CheckBox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="175"/>
+        <location filename="MyTCPCom.ui" line="159"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="182"/>
+        <location filename="MyTCPCom.ui" line="167"/>
         <source>Operate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="201"/>
+        <location filename="MyTCPCom.ui" line="186"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="206"/>
+        <location filename="MyTCPCom.ui" line="191"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="211"/>
+        <location filename="MyTCPCom.ui" line="196"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.ui" line="216"/>
+        <location filename="MyTCPCom.ui" line="201"/>
         <source>Set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="30"/>
-        <source>IVFD Control Test</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="MyTCPCom.cpp" line="39"/>
-        <source>Left Frame</source>
+        <location filename="MyTCPCom.ui" line="206"/>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="MyTCPCom.cpp" line="40"/>
-        <source>Left Frame Bot</source>
+        <source>Left Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="MyTCPCom.cpp" line="41"/>
-        <source>Right Frame</source>
+        <source>Left Frame Bot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="MyTCPCom.cpp" line="42"/>
-        <source>Right Frame Bot</source>
+        <source>Right Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="MyTCPCom.cpp" line="43"/>
-        <source>SendLeft</source>
+        <source>Right Frame Bot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="MyTCPCom.cpp" line="44"/>
+        <source>SendLeft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MyTCPCom.cpp" line="45"/>
         <source>SendRight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="60"/>
-        <location filename="MyTCPCom.cpp" line="63"/>
+        <location filename="MyTCPCom.cpp" line="61"/>
+        <location filename="MyTCPCom.cpp" line="64"/>
         <source>send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="61"/>
+        <location filename="MyTCPCom.cpp" line="62"/>
         <source>connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="62"/>
+        <location filename="MyTCPCom.cpp" line="63"/>
         <source>disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="64"/>
+        <location filename="MyTCPCom.cpp" line="65"/>
         <source>Left1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="65"/>
+        <location filename="MyTCPCom.cpp" line="66"/>
         <source>Left2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="151"/>
+        <location filename="MyTCPCom.cpp" line="161"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="153"/>
+        <location filename="MyTCPCom.cpp" line="163"/>
         <source>Text Files(*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="157"/>
+        <location filename="MyTCPCom.cpp" line="167"/>
         <source>Read File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="158"/>
+        <location filename="MyTCPCom.cpp" line="168"/>
         <source>Cannot open file:
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="166"/>
+        <location filename="MyTCPCom.cpp" line="176"/>
         <source>Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MyTCPCom.cpp" line="167"/>
+        <location filename="MyTCPCom.cpp" line="177"/>
         <source>You did not select any file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -256,7 +316,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="main.cpp" line="59"/>
+        <location filename="main.cpp" line="56"/>
         <source>Helleo,World</source>
         <translation>IVFD-COM Test</translation>
     </message>

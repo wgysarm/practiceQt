@@ -5,13 +5,29 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QPixmap>
-
-
+#include <QGraphicsPixmapItem>
+#include <QThread>
+#include <QStyle>
 
 MyDIP::MyDIP(QWidget *parent)
-	: QMainWindow(parent)
+	: QMainWindow(parent = 0)
 {
 	ui.setupUi(this);
+	//int w = this->width();
+	//int h = this->height();
+	
+	//Qt::WindowFlags flags = this->windowFlags();
+	//qDebug() << QString::number(flags, 16);
+	//flags &= ~Qt::WindowMinMaxButtonsHint;
+	//qDebug() << QString::number(flags, 16);
+	//this->setWindowFlags(flags);
+	
+	//this->setWindowFlags(Qt::WindowFlags()|Qt::WindowCloseButtonHint |Qt::WindowMinimizeButtonHint);//导致最大化按钮失效
+
+	QTime dateTime = QTime::currentTime();
+	
+	ui.labelDate->setText(dateTime.toString());
+
 	ui.splitter_Left->setStretchFactor(0,5);
 	ui.splitter_Left->setStretchFactor(1,1);
 	ui.splitter_Right->setStretchFactor(0,5);
@@ -22,12 +38,21 @@ MyDIP::MyDIP(QWidget *parent)
 	ui.pushButton_3->setText(tr("cvOpenImage"));
 	ui.pushButton_4->setText(tr("cvBGR2Gray"));
 	ui.pushButton_5->setText(tr("videoCapture"));
+	ui.pushButton_6->setText(tr("threadBegin"));
 
 	
 	imageLeft = NULL;
 	imageRight = NULL;
 	sceneLeft = NULL;
 	sceneRight = NULL;
+	timer = new QTimer(this);
+	timer->setInterval(30);
+	timer->start(100);
+	counter = 0;
+
+	timer_date = new QTimer(this);
+	timer_date->setInterval(1000);
+	timer_date->start(1000);
 
 	QObject::connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(SlotsFileActionOpen()));
 	QObject::connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(SlotsFileActionSave()));
@@ -41,6 +66,11 @@ MyDIP::MyDIP(QWidget *parent)
 	QObject::connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(SlotButton4Clicked()));
 	QObject::connect(ui.pushButton_5, SIGNAL(clicked()), this, SLOT(SlotButton5Clicked()));
 	QObject::connect(ui.pushButton_6, SIGNAL(clicked()), this, SLOT(SlotButton6Clicked()));
+	QObject::connect(timer_date, SIGNAL(timeout()), this, SLOT(SlotGetCurrentTime()));
+
+
+	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(SlotVplayTimer()));
+	QObject::connect(this, SIGNAL(timerStop()), this, SLOT(SlotStopTimer()));
 }
 
 MyDIP::~MyDIP()
@@ -61,6 +91,16 @@ MyDIP::~MyDIP()
 	}
 }
 
+
+void MyDIP::resizeEvent(QResizeEvent *ev)
+{
+	qDebug() << "height = " << this->height() << "  width = " <<this->width();
+	//ui.graphicsView_Left->resize(0.5*this->width()-30, 0.3*this->height());
+	//ui.graphicsView_Right->resize(0.5*this->width()-30, 0.3*this->height());
+
+	ui.splitter->resize(this->width()-20, this->height()-60);
+	
+}
 
 void MyDIP::SlotsFileActionOpen()
 {
@@ -388,10 +428,7 @@ void MyDIP::SlotButton1Clicked()
 	}
 	Mat matImag = imread(filePath.toStdString());
 	imshow("image Hydrangeas",matImag);
-
 	imageLeft = new QImage(cvMat2QImage(matImag));
-
-
 	waitKey();
 	return;
 
@@ -468,9 +505,9 @@ void MyDIP::SlotButton5Clicked()
 	QString filePath = QFileDialog::getOpenFileName(this, "get a image file", "./video", "video file *.avi,*.mp4");
 
 
-	cvNamedWindow("Video Player");
+	//cvNamedWindow("Video Player");
 	//VideoCapture capture("F:/work/cplusstudy/QtStudyHello/practiceQt/HelloWorld/video/video3.mp4");
-	VideoCapture capture(filePath.toStdString());
+	cv::VideoCapture capture(filePath.toStdString());
 	
 	if(!capture.isOpened())
 	{
@@ -478,6 +515,7 @@ void MyDIP::SlotButton5Clicked()
 		if(sceneRight != NULL)
 		{
 			delete sceneRight;
+			sceneRight = NULL;
 		}
 
 		return ;
@@ -496,23 +534,30 @@ void MyDIP::SlotButton5Clicked()
 	double rate = capture.get(CV_CAP_PROP_FPS);
 
 	sceneRight = new QGraphicsScene(this);
-
-	QImage **imgDis = (QImage**)malloc(sizeof(int *));
-
-	*imgDis = (QImage*)malloc(sizeof(int *));
-
-	if(imgDis == NULL || *imgDis == NULL)
+	sceneLeft = new QGraphicsScene(this);
+	if(sceneRight == NULL || sceneLeft == NULL)
 	{
 		return;
 	}
 
-	if(sceneRight == NULL)
+	QImage **imgDis = (QImage **)malloc(sizeof(int *));
+	QImage **imgCap = (QImage **)malloc(sizeof(int *));
+
+	*imgDis = (QImage *)malloc(sizeof(int *));
+	*imgCap = (QImage *)malloc(sizeof(int *));
+
+	if(imgDis == NULL || *imgDis == NULL || imgCap == NULL || *imgCap == NULL)
+	{
+		return;
+	}
+
+	if(sceneRight == NULL ||sceneLeft == NULL)
 	{
 		return;
 	}
 
 
-	QPixmap pixmap;
+	QPixmap pixmapL, pixmapR;
 
 	while(!statusStop)
 	{
@@ -523,40 +568,59 @@ void MyDIP::SlotButton5Clicked()
 			cv::destroyWindow("Extracted frame");
 			return;
 
-		}
-			
-		cvMat2QImage1(&frame,imgDis) ;
+		}		
+
+		Canny(frame, canyFrame, 50, 200);
+
+		cvMat2QImage1(&canyFrame,imgDis) ;
+		cvMat2QImage1(&frame,imgCap) ;
 
 		imageRight = *imgDis;
-
-		pixmap = QPixmap::fromImage(*imageRight);
-		sceneRight->addPixmap(pixmap);
-		//ui.graphicsView_Right->setScene(sceneRight);
-		//ui.graphicsView_Right->show();
+		imageLeft =	*imgCap;
 		//开始检测每一帧图像
-		imshow("Extracted frame",frame);  
-		//filter2D(frame,frame,-1,kernel); 
 
-		//Canny(frame, canyFrame, 50, 200);
+		pixmapR = QPixmap::fromImage(*imageRight);
+		pixmapL = QPixmap::fromImage(*imageLeft);
+		QGraphicsPixmapItem *pitemR = sceneRight->addPixmap(pixmapR);//这一句话造成了内存泄漏,因为返回了一个指针，指向了再函数内部分配的空间。如果没有释放，就会造成内存泄漏。
+		QGraphicsPixmapItem *pitemL = sceneLeft->addPixmap(pixmapL);
+
+		ui.graphicsView_Right->setScene(sceneRight);
+		ui.graphicsView_Right->show();
+
+		ui.graphicsView_Left->setScene(sceneLeft);
+		ui.graphicsView_Left->show();
+
+
+		imshow(QString("Extracted frame %1").toStdString(),frame);  
 		//imshow("Video player", canyFrame);
-		//if(*imgDis != NULL)
-		//{
-		//	delete *imgDis;
-		//	imgDis = NULL;
-		//}
-
+		qDebug() << "MyDIP thread is :"<<this->thread()->currentThreadId();
 		waitKey(30);
 
+		if(pitemL != NULL)//记得一定要释放，不然内存泄漏。
+		{
+			delete pitemL;
+			pitemL = NULL;
+		}
+		if(pitemR != NULL)//记得一定要释放，不然内存泄漏。
+		{
+			delete pitemR;
+			pitemR = NULL;
+		}
 	}
 
 	capture.release();
-	if(imgDis != NULL)
+	if(imgDis != NULL )
 	{
 		free(imgDis);
 		imgDis = NULL;
 	}
-	waitKey(0);
 
+	if(imgCap != NULL)
+	{
+		free(imgCap);
+		imgCap = NULL;
+	}
+	waitKey(0);
 
 	return;
 }
@@ -574,4 +638,45 @@ void MyDIP::SlotButton7Clicked()
 void MyDIP::SlotButton8Clicked()
 {
 
+}
+
+
+void MyDIP::SlotVplayTimer()
+{
+	qDebug() << QString("3 thread MyDIP %1").arg(counter) << QThread::currentThreadId();
+
+	if(counter == 100)
+	{
+		emit timerStop();
+		return;
+	}
+	counter ++;
+	return;
+}
+
+void MyDIP::paintEvent(QPaintEvent *ev)
+{
+	QPainter pt(this);
+
+	pt.setPen(Qt::red);
+	pt.drawLine(80, 100, 650, 500);
+
+}
+
+void MyDIP::SlotDebugPrint()
+{
+	qDebug() << "4 Thread finished"  << QThread::currentThreadId();
+	return;
+}
+
+void MyDIP::SlotStopTimer()
+{
+	timer->stop();
+	return;
+}
+
+void MyDIP::SlotGetCurrentTime()
+{
+	ui.labelDate->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss dddd"));
+	update();
 }
