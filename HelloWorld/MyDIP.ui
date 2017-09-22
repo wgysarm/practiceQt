@@ -128,8 +128,21 @@
     <property name="title">
      <string>OPERATE</string>
     </property>
+    <widget class="QMenu" name="menuDipImg">
+     <property name="title">
+      <string>dipImg</string>
+     </property>
+     <addaction name="actionRgb2gray"/>
+     <addaction name="actionFuzzy"/>
+     <addaction name="actionSharpen"/>
+     <addaction name="actionErode"/>
+     <addaction name="actionDilate"/>
+     <addaction name="actionScaler"/>
+     <addaction name="actionBrightness"/>
+    </widget>
     <addaction name="actionLoad"/>
     <addaction name="actionGray"/>
+    <addaction name="menuDipImg"/>
    </widget>
    <addaction name="menuFILE"/>
    <addaction name="menuOPERATE"/>
@@ -168,6 +181,41 @@
   <action name="actionGray">
    <property name="text">
     <string>gray</string>
+   </property>
+  </action>
+  <action name="actionRgb2gray">
+   <property name="text">
+    <string>rgb2gray</string>
+   </property>
+  </action>
+  <action name="actionFuzzy">
+   <property name="text">
+    <string>fuzzy</string>
+   </property>
+  </action>
+  <action name="actionSharpen">
+   <property name="text">
+    <string>sharpen</string>
+   </property>
+  </action>
+  <action name="actionErode">
+   <property name="text">
+    <string>erode</string>
+   </property>
+  </action>
+  <action name="actionDilate">
+   <property name="text">
+    <string>dilate</string>
+   </property>
+  </action>
+  <action name="actionScaler">
+   <property name="text">
+    <string>scaler</string>
+   </property>
+  </action>
+  <action name="actionBrightness">
+   <property name="text">
+    <string>brightness</string>
    </property>
   </action>
  </widget>
