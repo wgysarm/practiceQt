@@ -22,11 +22,48 @@
 #include "MyTCPCom.h"
 #include "MyDIP.h"
 #include "main.h"
+#include "AlgorithmFactory.h"
 
+
+
+#include <stdlib.h>
+#include <crtdbg.h>
+#define CRTDBG_MAP_ALLOC
+#define New   new(_NORMAL_BLOCK, __FILE__, __LINE__) 
 int testw(QApplication &a);
-int testc(QApplication &a);
+//int testc(QApplication &a);
+int testc(void);
 
 using namespace std;
+
+
+
+class AlgorithmScale  :public AlgorithmV
+{
+public:
+	int AlgorithmSay(QImage *imageSrc, QImage **imageDest);
+};
+
+int AlgorithmScale::AlgorithmSay(QImage *imageSrc, QImage **imageDest)
+{
+	qDebug() << " do Algorithm ScaleConvert!";
+	return 0;
+}
+
+
+
+
+
+class AlgrithmScaleFactory :public AlgorithmFactory{
+public:
+	AlgorithmV* CreateAlgorithm()
+	{
+		return new AlgorithmScale();
+	}
+};
+
+
+
 
 int main(int argc, char *argv[])
 {
@@ -37,11 +74,14 @@ int main(int argc, char *argv[])
 	a.installTranslator(&translator);
 
 	qDebug() << "main thread:" << QThread::currentThreadId();
-
+	//_CrtDumpMemoryLeaks();
 	return testw(a);
+	//testc(a);
 	//testc();
 	//return a.exec();
-
+	qDebug() << "what";
+	//_CrtDumpMemoryLeaks();
+	return 0;
 }
 
 int testw(QApplication &a)
@@ -53,7 +93,7 @@ int testw(QApplication &a)
 	//MyGraphic w(0);
 	//MyDialog w(0);
 	//MyApplication app(0);
-
+	//MyPainter w(0);
 	MyDIP w(0);
 	//TestUI w(0);
 
@@ -95,7 +135,14 @@ int testw(QApplication &a)
 	//thread1.start();
 	//thread2.start();
 
+	AlgrithmScaleFactory *ascale = new AlgrithmScaleFactory();
+	AlgorithmV *algScale = ascale->CreateAlgorithm();
+	algScale->AlgorithmSay(NULL, NULL);
+	//AlgrithmScaleFactory ascale;
 
+	QThread threadDIP(0);
+	w.moveToThread(&threadDIP);
+	threadDIP.start();
 
 	w.show();
 	//d.show();
@@ -103,32 +150,39 @@ int testw(QApplication &a)
 
 }
 
-int testc(QApplication &a)
+//int testc(QApplication &a)
+int testc(void)
 {
-	char array[20];
-	qDebug() << array << endl;
-	qDebug() << &array << endl;
-	qDebug() << &array[20] << endl;
 
-	typedef int(array1)[20];
-	array1 a1 ;
-	qDebug() << a1 << endl;
-	qDebug() << &a1 << endl;
-	qDebug() << &a1[0] << endl;
+	char *ch = New char;
+	*ch = 27;
+	//char array[20];
+	////qDebug() << *ch;
+	//qDebug() << array << endl;
+	//qDebug() << &array << endl;
+	//qDebug() << &array[20] << endl;
 
-	array1 *p = &a1;
-	qDebug() << p ;
-	p++;
-	qDebug() << p << endl ;
+	//typedef int(array1)[20];
+	//array1 a1 ;
+	//qDebug() << a1 << endl;
+	//qDebug() << &a1 << endl;
+	//qDebug() << &a1[0] << "  " << &a1[1]  << endl;
 
-	int *p1 = (int *)a1;
-	qDebug() << p1;
-	p1++;
-	qDebug() << p1;
-	
+	//array1 *p = &a1;
+	//qDebug() << "p:" <<p ;
+	//p++;
+	//qDebug() << "p++:" << p << endl ;
+
+	//int *p1 = (int *)a1;
+	//qDebug() << p1;
+	//p1++;
+	//qDebug() << p1;
+	qDebug() << "WHAT   " << ch ;
+
 
 	system("pause");
-	return a.exec();
-
+	//return a.exec();
+	_CrtDumpMemoryLeaks();
+	return 0;
 }
 

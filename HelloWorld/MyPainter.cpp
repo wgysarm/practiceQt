@@ -16,26 +16,26 @@ MyPainter::~MyPainter()
 
 void MyPainter::paintEvent(QPaintEvent *ev)
 {
-	//drawTest();
 	drawLine();
-	//repaint();
-	//update();
 }
 
 void MyPainter::mousePressEvent(QMouseEvent *ev)
 {
-	_line.append(ev->pos());
-	update();
+	QVector<QPoint> line;
+	line.append(ev->pos());
+	_lineLast = line;
+	//update();
 }
 void MyPainter::mouseReleaseEvent(QMouseEvent *ev)
 {
-	_line.append(ev->pos());
-	update();
+	_lines.append(_lineLast);
+	//_line.append(ev->pos());
+	//update();
 }
 void MyPainter::mouseMoveEvent(QMouseEvent *ev)
 {
-	_line.append(ev->pos());
-	update();
+	_lineLast.append(ev->pos());
+	repaint();
 }
 
 void MyPainter::drawTest()
@@ -78,10 +78,14 @@ void MyPainter::drawLine()
 
 
 	int i = 0 ;
-	for (i = 0 ; i < _line.size()-1; i++)
+	for(int j =0; j < _lines.size(); j++)
 	{
-		p.drawLine(_line.at(i),_line.at(i+1));
+		for (i = 0 ; i < _lines.at(j).size()-1; i++)
+		{
+			p.drawLine(_lines.at(j).at(i),_lines.at(j).at(i+1));
+		}
 	}
+
 
 	update();
 	return;
