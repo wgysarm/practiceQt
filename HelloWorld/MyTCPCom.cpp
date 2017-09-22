@@ -22,6 +22,8 @@ MyTCPCom::MyTCPCom(QWidget *parent)
 {
 	QLabel *m_labelLeft, *m_labelLeftBot, *m_labelRight, *m_labelRightBot,
 		   *m_labelSendLeft, *m_labelSendRight;
+
+
 	QVBoxLayout *vLayoutLeft, *vLayoutRight; 
 	QHBoxLayout *hLayoutLeft1, *hLayoutLeft2, *hLayoutLeft3, *hLayoutRight1, *hLayoutRight2, *hLayoutRight3;
 	QGridLayout *gLayoutGroupLeft, *gLayoutGroupRight;
@@ -31,11 +33,13 @@ MyTCPCom::MyTCPCom(QWidget *parent)
 	
 	ui.setupUi(this);
 
+	
 	splitterMain = new QSplitter(Qt::Horizontal,this);
 	m_widgetLeft		= new QWidget(splitterMain);
 	m_widgetRight		= new QWidget(splitterMain);
 	m_textBrowserLeft	= new QTextBrowser(m_widgetLeft);
 	m_textBrowserRight	= new QTextBrowser(m_widgetRight);
+	m_netSetWidget = NULL;
 
 	m_labelLeft = new QLabel(tr("Left Frame"),m_widgetLeft);
 	m_labelLeftBot = new QLabel(tr("Left Frame Bot"), m_widgetLeft);
@@ -130,11 +134,13 @@ MyTCPCom::MyTCPCom(QWidget *parent)
 	this->setCentralWidget(splitterMain);//QSplitter 是QWidget的子类
 	server->listen(QHostAddress::Any,8899);
 	timerSend->setInterval(1000);
+
+
 	
 	QObject::connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(openFile()));
 	QObject::connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(close()));
 	QObject::connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(saveFile()));
-
+	QObject::connect(ui.actionSet, SIGNAL(triggered()), this, SLOT(SlotActionSet()));
 	QObject::connect(server, SIGNAL(newConnection()), this, SLOT(slotServer()) );
 
 	QObject::connect(clientSocket,SIGNAL(connected()), this, SLOT(slotClientSocketRW()));
@@ -147,11 +153,16 @@ MyTCPCom::MyTCPCom(QWidget *parent)
 	QObject::connect(pbServerSend, SIGNAL(clicked()), this, SLOT(slotServerSend()));
 	QObject::connect(lineEditLeft,SIGNAL(returnPressed()), this , SLOT(slotServerSend()));
 
+
 }
 
 MyTCPCom::~MyTCPCom()
 {
-
+		if(m_netSetWidget != NULL)
+		{
+			delete m_netSetWidget;
+			m_netSetWidget = NULL;
+		}
 }
 
 void MyTCPCom::openFile()
@@ -316,3 +327,39 @@ void MyTCPCom::slotServerSend()
 	lineEditLeft->clear();
 }
 
+void MyTCPCom::SlotActionSet()
+{
+	qDebug() << "action Set press";
+	m_netSetWidget = new QWidget(0);
+	uiTcpUdpSet.setupUi(m_netSetWidget);
+	m_netSetWidget->setWindowTitle("TCP/UDP SET");
+	m_netSetWidget->setFixedSize(800,600);
+	m_netSetWidget->setWindowOpacity(1.0);
+	m_netSetWidget->show();
+
+	//此处存在线程占用问题，同时操作m_netSetWidget,造成资源冲突。
+	//QObject::connect(m_netSetWidget, &QWidget::destroyed, [&](){	qDebug() << "delete m_netSetWidget!"; 
+	//																if(m_netSetWidget != NULL)
+	//																{
+	//																	delete m_netSetWidget;
+	//																	m_netSetWidget = NULL;
+	//																}
+	//															});
+
+
+	QObject::connect(uiTcpUdpSet.pushButton_save, &QPushButton::clicked, [&](){	qDebug() << "save!"; 
+																				if(uiTcpUdpSet.lineEdit_localAddr->text().isEmpty())
+																				{
+																					QMessageBox messageBox;
+																					messageBox.setText("no input");
+																					messageBox.exec();
+																					return;
+																				}
+																				m_textBrowserLeft->append(uiTcpUdpSet.lineEdit_localAddr->text());
+	
+																				});
+
+
+
+	qDebug() << "stop";
+}

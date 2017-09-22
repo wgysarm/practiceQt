@@ -1077,3 +1077,12 @@ void MyDIP::SlotOperateActionBright()
 }
 
 #pragma endregion bright
+
+
+
+void MyDIP::SlotOperateActionSharp(void)
+{
+	return;
+}
+
+

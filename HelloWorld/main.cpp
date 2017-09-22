@@ -23,6 +23,7 @@
 #include "MyDIP.h"
 #include "main.h"
 #include "AlgorithmFactory.h"
+#include "TestUI.h"
 
 
 
@@ -35,8 +36,6 @@ int testw(QApplication &a);
 int testc(void);
 
 using namespace std;
-
-
 
 class AlgorithmScale  :public AlgorithmV
 {
@@ -51,9 +50,6 @@ int AlgorithmScale::AlgorithmSay(QImage *imageSrc, QImage **imageDest)
 }
 
 
-
-
-
 class AlgrithmScaleFactory :public AlgorithmFactory{
 public:
 	AlgorithmV* CreateAlgorithm()
@@ -63,8 +59,6 @@ public:
 };
 
 
-
-
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
@@ -72,6 +66,8 @@ int main(int argc, char *argv[])
 	QTranslator translator;
 	translator.load("myhello.qm");
 	a.installTranslator(&translator);
+
+
 
 	qDebug() << "main thread:" << QThread::currentThreadId();
 	//_CrtDumpMemoryLeaks();
@@ -86,7 +82,7 @@ int main(int argc, char *argv[])
 
 int testw(QApplication &a)
 {
-	//MyTCPCom w(0);
+	MyTCPCom w(0);
 	//HelloWorld w(0);
 	//MyWidget w(0);
 	//EventWidget w(0y
@@ -94,7 +90,7 @@ int testw(QApplication &a)
 	//MyDialog w(0);
 	//MyApplication app(0);
 	//MyPainter w(0);
-	MyDIP w(0);
+	//MyDIP w(0);
 	//TestUI w(0);
 
 	//a.sendEvent(&w,new QEvent(QEvent::User));
